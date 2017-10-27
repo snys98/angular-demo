@@ -1,0 +1,56 @@
+<div class="wrapper">
+    <!-- Main Header -->
+    
+    <app-header [user]=user></app-header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <app-menu [user]=user></app-menu>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+           <!-- Content Header (Page header) -->
+    <section class="content-header">
+            <h1>
+                {{pageTitle}}
+                <small>{{pageDesc}}</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i> Level</a>
+                </li>
+                <li class="active">Here</li>
+            </ol>
+        </section>
+    
+        <!-- Main content -->
+        <section class="content container-fluid">
+    
+            <!--------------------------
+            | Your Page Content Here |
+            -------------------------->
+            <router-outlet></router-outlet>
+    
+        </section>
+        
+        <router-outlet name=aux></router-outlet>
+    </div>
+    
+    
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <app-footer></app-footer>
+    
+
+    <!-- Control Sidebar -->
+    <app-sidebar></app-sidebar>
+    
+    <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+         Both of these plugins are recommended to enhance the
+         user experience. -->

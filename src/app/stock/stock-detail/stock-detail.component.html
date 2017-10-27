@@ -1,0 +1,57 @@
+<div class="box box-info">
+    <div class="box-header with-border">
+        <h3 class="box-title">股票信息</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <div class="form-horizontal">
+        
+        <div class="box-body">
+            <div class="form-group">
+                <label for="inputName" class="col-sm-2 control-label">股票名称</label>
+                <div class="col-sm-6">
+                    <input [disabled]='this.editable | bool2disabled' type="text" class="form-control" id="inputName" placeholder="股票名称" autocomplete="off" [(ngModel)]="this.stock.name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPrice" class="col-sm-2 control-label">股票价格</label>
+                <div class="col-sm-2">
+                    <input [disabled]='this.editable | bool2disabled' type="number" class="form-control" id="inputPrice" placeholder="股票价格" autocomplete="off" [(ngModel)]="this.stock.price">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputRating" class="col-sm-2 control-label">股票评级</label>
+                <div class="col-sm-6">
+                    <app-rating [(rating)]="this.stock.rating"></app-rating>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inpoutDesc" class="col-sm-2 control-label">股票描述</label>
+                <div class="col-sm-6">
+                    <textarea [disabled]='this.editable | bool2disabled' class="form-control" id="inpoutDesc" placeholder="股票描述" autocomplete="off" [(ngModel)]="this.stock.desc"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">股票标签</label>
+                <div class="col-sm-6">
+                    <h5><span *ngFor="let tag of this.stock.tags;let i = index;" class="label label-info">
+                        {{tag}}
+                        <i class="fa fa-remove" (click)="this.removeTag(i)"></i>
+                    </span>
+                    <span *ngIf="this.editable" class="label label-success">
+                        新增
+                        <i class="fa fa-plus"></i>
+                    </span>
+                </h5>
+                </div>
+            </div>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            <button class="btn btn-default" (click)="this.cancel()">取消</button>
+            <button *ngIf="this.editable" class="btn btn-success pull-right" (click)="this.save()">保存</button>
+            <button *ngIf="!this.editable" class="btn btn-info pull-right" (click)="this.close()">关闭</button>
+        </div>
+        <!-- /.box-footer -->
+    </div>
+</div>

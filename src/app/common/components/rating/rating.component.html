@@ -1,0 +1,3 @@
+<span *ngFor="let starState of starStates;let i = index" class="glyphicon glyphicon-star" [class.glyphicon-star-empty]="!starState" (click)="this.clickStar(i)"></span>
+&nbsp;
+<span>{{rating}}</span>

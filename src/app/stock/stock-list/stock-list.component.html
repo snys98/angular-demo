@@ -1,0 +1,77 @@
+<div class="box stock-list">
+    <div class="box-header with-border">
+        <a class="btn btn-success btn-sm" (click)="this.create()">
+            <span class="glyphicon glyphicon-plus" >创建</span>
+        </a>
+        <div class="box-tools">
+                <div class="input-group input-group-sm" style="width: 150px; top: 5px">
+                  <input [formControl]="this.searchInput" type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+                  <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>股票名称</th>
+                    <th>当前股价</th>
+                    <th>股票评级</th>
+                    <th>操作</th>
+                </tr>
+                <tr *ngFor="let stock of stocks | stockFilter:'name':keyword ; let i = index;">
+                    <td>{{i}}</td>
+                    <td>{{stock.name}}</td>
+                    <td>{{stock.price | number:'.2-2'}}</td>
+                    <td>
+                        <app-rating [rating]=stock.rating></app-rating>
+                    </td>
+                    <td>
+                        <a class="btn btn-primary btn-xs" (click)="this.update(stock)">
+                            <span class="glyphicon glyphicon-pencil"></span>修改
+                        </a>
+                        <a class="btn btn-danger btn-xs" ng-click="click()">
+                            <span class="glyphicon glyphicon-remove"></span>删除
+                        </a>
+                    </td>
+                    <!-- <td>4.</td>
+                        <td>Fix and squish bugs</td>
+                        <td>
+                            <div class="progress progress-xs progress-striped active">
+                                <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge bg-green">90%</span>
+                        </td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer clearfix">
+        <ul class="pagination pagination-sm no-margin pull-right">
+            <li>
+                <a href="#">«</a>
+            </li>
+            <li>
+                <a href="#">1</a>
+            </li>
+            <li>
+                <a href="#">2</a>
+            </li>
+            <li>
+                <a href="#">3</a>
+            </li>
+            <li>
+                <a href="#">»</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- /.content -->

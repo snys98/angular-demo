@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    font-family: 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+}
+input， label， select， option， textarea， button， fieldset， legend{
+    font-family: 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+}
+.label{
+    margin: 0 5px;
+}
+textarea{
+    resize: none;
+}
